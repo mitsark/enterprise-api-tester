@@ -1,0 +1,51 @@
+{
+  "base_url": "https://jsonplaceholder.typicode.com",
+  "max_rps": 2,
+  "tests": [
+    {
+      "name": "1. The Happy Path (GET & JSON Keys)",
+      "method": "GET",
+      "url": "/users/1",
+      "expected_status": 200,
+      "max_response_time_ms": 1500,
+      "expected_keys": ["id", "name", "email"]
+    },
+    {
+      "name": "2. The Creator (POST Request)",
+      "method": "POST",
+      "url": "/posts",
+      "json": {"title": "My New Post", "body": "Hello World", "userId": 1},
+      "expected_status": 201,
+      "max_response_time_ms": 2000
+    },
+    {
+      "name": "3. The Destroyer (DELETE Request)",
+      "method": "DELETE",
+      "url": "/posts/1",
+      "expected_status": 200,
+      "max_response_time_ms": 1500
+    },
+    {
+      "name": "4. The Flaky Network (Tests Retries)",
+      "method": "GET",
+      "url": "https://httpstat.us/503",
+      "expected_status": 200,
+      "max_response_time_ms": 3000,
+      "retries": 2
+    },
+    {
+      "name": "5. The Debug Catcher (Intentional Failure)",
+      "method": "GET",
+      "url": "/todos/1",
+      "expected_status": 404,
+      "max_response_time_ms": 1500
+    },
+    {
+      "name": "6. The Slowpoke (Tests Timeout Limits)",
+      "method": "GET",
+      "url": "https://httpstat.us/200?sleep=3000",
+      "expected_status": 200,
+      "max_response_time_ms": 1000
+    }
+  ]
+}
