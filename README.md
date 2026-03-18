@@ -31,20 +31,7 @@ The engine is driven by a simple JSON configuration file. It supports `GET`, `PO
       "max_response_time_ms": 1500,
       "expected_keys": ["id", "name"]
     }
-💻 How to Run (Local)
-Ensure Python 3.9+ is installed.
-
-Install the required library: pip install requests
-
-Run the engine: python main.py
-
-Check the reports/ folder for your generated Markdown report.
-
-🐳 How to Run (Docker)
-To run this in a completely isolated, system-agnostic environment:
-
-Build the image: docker build -t concurrent-api-tester .
-
-Run the container: docker run --rm concurrent-api-tester
   ]
 }
+
+
