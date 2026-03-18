@@ -33,5 +33,15 @@ The engine is driven by a simple JSON configuration file. It supports `GET`, `PO
     }
   ]
 }
+```
+## 💻 How to Run (Local)
+1. Ensure Python 3.9+ is installed.
+2. Install the required library: `pip install requests`
+3. Run the engine: `python main.py`
+4. Check the `reports/` folder for your generated Markdown report.
 
+## 🐳 How to Run (Docker)
+To run this in a completely isolated, system-agnostic environment:
+1. Build the image: `docker build -t api-tester .`
+2. Run the container: `docker run --rm api-tester`
 
